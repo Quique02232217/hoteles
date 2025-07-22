@@ -1,0 +1,21 @@
+const express = require("express");
+const cors = require("cors");
+
+require("dotenv").config();
+const app = express();
+const acomodacionesRoutes = require("../routes/acomodacionesRoutes");
+const habitacionesRoutes = require("../routes/habitacionesRoutes");
+const swaggerUi = require("swagger-ui-express");
+const swaggerSpec = require("../docs/swagger");
+const reservaRoutes = require("../routes/reservaRoutes");
+app.use(cors());
+app.use(express.json());
+app.use("/acomodacion", acomodacionesRoutes);
+app.use("/habitacion", habitacionesRoutes);
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use("/reserva", reservaRoutes);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en puerto ${PORT}`);
+  console.log(`Swagger disponible en http://localhost:${PORT}/api-docs`);
+});
