@@ -30,6 +30,21 @@ async function crearAcomodacion(data) {
   return result.insertId;
 }
 
+async function obtenerAcomodacion() {
+  const [rows] = await db.execute(`SELECT * FROM acomodaciones`);
+  return rows;
+}
+
+async function obtenerAcomodacionPorReferencia(ref_tipo_acomodacion) {
+  const [rows] = await db.execute(
+    `SELECT * FROM acomodaciones WHERE ref_tipo_acomodacion = ?`,
+    [ref_tipo_acomodacion]
+  );
+  return rows;
+}
+
 module.exports = {
   crearAcomodacion,
+  obtenerAcomodacion,
+  obtenerAcomodacionPorReferencia,
 };
