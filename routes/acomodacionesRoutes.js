@@ -4,7 +4,7 @@ const acomodacionesController = require("../controller/acomodacionController");
 
 /**
  * @swagger
- * /api/acomodaciones:
+ * /acomodacion/crear:
  *   post:
  *     summary: Crea una nueva acomodación
  *     tags: [Acomodaciones]
