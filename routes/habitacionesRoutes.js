@@ -17,7 +17,7 @@ router.get("/obtener", HabitacionesController.getAll);
 
 /**
  * @swagger
- * /api/habitaciones:
+ * /habitacion/crear:
  *   post:
  *     summary: Crea una nueva habitación
  *     tags: [Habitaciones]
