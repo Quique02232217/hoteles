@@ -10,6 +10,12 @@ async function listarEntidades() {
   return entidadesInfo;
 }
 
+async function crearEntidad(data) {
+  const newId = await entidadesModel.crearEntidad(data);
+  return { id: newId, ...data };
+}
+
 module.exports = {
   listarEntidades,
+  crearEntidad,
 };

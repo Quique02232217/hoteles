@@ -25,7 +25,7 @@
 
 /**
  * @swagger
- * /entidades/obtener:
+ * /entidad/obtener:
  *   get:
  *     summary: Obtiene todas las entidades
  *     tags: [Entidades]
@@ -39,5 +39,28 @@
  *               items:
  *                 $ref: '#/components/schemas/Entidad'
  *       500:
- *         description: Error al obtener las entidades
+ *         description: Error interno del servidor
+ */
+
+/**
+ * @swagger
+ * /entidad/crear:
+ *   post:
+ *     summary: Crea una nueva entidad
+ *     tags: [Entidades]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Entidad'
+ *     responses:
+ *       201:
+ *         description: Entidad creada exitosamente
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Entidad'
+ *       500:
+ *         description: Error interno del servidor
  */
